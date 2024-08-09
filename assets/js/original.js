@@ -27,14 +27,19 @@ function convertValues(){
     const fromValue = document.getElementById("fromValue")
     const convertedValue = document.getElementById("convertedValue")
 
+    const valueToken = {
+     dolar : 5.55,
+     euroy : 6.06,
+     libra : 7.08,
+     iene : 0.038,
+     btc : 337782.26,
+     eth : 14884.70,
+     real : 1
+}
 
-    const dolarToday = 5.55
-    const euroToday = 6.06
-    const libraToday = 7.08
-    const ieneToday = 0.038
-    const btcToday = 337782.26
-    const ethToday = 14884.70
-    const realToday = 1
+const fromToken = valueToken[currencySelectFrom.value];
+const toToken = valueToken[currencySelectTo.value];
+const convertedCurrency = (inputCurrencyValue * fromToken) / toToken;
 
 // <-----moeda1----->
 
@@ -85,31 +90,31 @@ function convertValues(){
     if (currencySelectTo.value == "real" ){
         convertedValue.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency", currency: "BRL"
-        }).format(inputCurrencyValue / realToday)
+        }).format(convertedCurrency)
     }
 
     if (currencySelectTo.value == "dolar" ){
         convertedValue.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency", currency: "USD"
-        }).format(inputCurrencyValue / dolarToday)
+        }).format(convertedCurrency)
     }
 
     if (currencySelectTo.value == "euro" ){
         convertedValue.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency", currency: "EUR"
-        }).format(inputCurrencyValue / euroToday)
+        }).format(convertedCurrency)
     }
 
     if (currencySelectTo.value == "libra" ){
         convertedValue.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency", currency: "GBP"
-        }).format(inputCurrencyValue / libraToday)
+        }).format(convertedCurrency)
     }
 
     if (currencySelectTo.value == "iene" ){
         convertedValue.innerHTML = new Intl.NumberFormat("ja-JP", {
             style: "currency", currency: "JPY"
-        }).format(inputCurrencyValue / ieneToday)
+        }).format(convertedCurrency)
     }
 
     if (currencySelectTo.value == "btc") {

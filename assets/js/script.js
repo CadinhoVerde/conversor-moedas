@@ -1,7 +1,19 @@
 const convertButton = document.querySelector(".convert-btn");
+
 const currencySelectFrom = document.querySelector(".currency-select-from");
 const currencySelectTo = document.querySelector(".currency-select-to");
+
 const swapButton = document.querySelector(".swap-btn");
+
+const inputCurrency = document.querySelector(".input-currency");
+
+
+// <--------------enter------------->
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        convertButton.click();
+    }
+});
 
 // <--------------swap botao------------->
 function swapCurrency(){
@@ -17,9 +29,10 @@ function swapCurrency(){
 
 swapButton.addEventListener("click", swapCurrency);
 
+
 // <--------------conversor------------->
 function convertValues(){  
-    const inputCurrencyValue = document.querySelector(".input-currency").value;
+    const inputCurrencyValue = inputCurrency.value.replace(/[^0-9]/g, '');
     const fromValue = document.getElementById("fromValue");
     const convertedValue = document.getElementById("convertedValue");
 
@@ -84,11 +97,11 @@ function changeCurrency(){
          currencyImage.src = "assets/img/euro.png";
     }
     if (currencySelectFrom.value == "libra"){
-        nameCurrency.innerHTML = "Libra Esterlina";
+        nameCurrency.innerHTML = "Libra";
          currencyImage.src = "assets/img/libra.png";
     }
     if (currencySelectFrom.value == "iene"){
-        nameCurrency.innerHTML = "Iene Japônes";
+        nameCurrency.innerHTML = "Iene";
          currencyImage.src = "assets/img/iene.png";
     }
     if (currencySelectFrom.value == "btc"){
@@ -100,7 +113,7 @@ function changeCurrency(){
          currencyImage.src = "assets/img/ethereum.png";
     }
 
-    // <!-----------bloco2------>
+    // <!-----------bloco2------------>
 
     if (currencySelectTo.value == "real"){
         nameCurrencyConverted.innerHTML = "Real";
@@ -115,11 +128,11 @@ function changeCurrency(){
          currencyImageConverted.src = "assets/img/euro.png";
     }
     if (currencySelectTo.value == "libra"){
-        nameCurrencyConverted.innerHTML = "Libra Esterlina";
+        nameCurrencyConverted.innerHTML = "Libra";
          currencyImageConverted.src = "assets/img/libra.png";
     }
     if (currencySelectTo.value == "iene"){
-        nameCurrencyConverted.innerHTML = "Iene Japônes";
+        nameCurrencyConverted.innerHTML = "Iene";
          currencyImageConverted.src = "assets/img/iene.png";
     }
     if (currencySelectTo.value == "btc"){
@@ -133,6 +146,7 @@ function changeCurrency(){
     
     convertValues();
 }
+
 
 currencySelectFrom.addEventListener("change", changeCurrency);
 currencySelectTo.addEventListener("change", changeCurrency);
