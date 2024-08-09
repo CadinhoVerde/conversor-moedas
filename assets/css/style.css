@@ -15,13 +15,17 @@
     outline: none;
 }
 
+body {
+    background: var(--bg);
+    background-size: cover;
+}
+
 .wrap {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--bg);
-    background-size: cover;
+    height: 80%;
 }
 
 /* <----------------> */

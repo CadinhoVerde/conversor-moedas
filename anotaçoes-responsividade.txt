@@ -1,0 +1,36 @@
+tablet width 
+
+
+.wrap 
+height 100vh
+
+
+.logo img {
+    width: 250px;
+    height: 250px;
+
+.container {
+    width: 90%;
+    height: 80%;
+    padding: 25px;
+   
+}
+
+
+.box-container {
+zera
+
+.currency {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.swap-btn img {
+    transform: rotate(90deg);
+}
+
+.convert-btn {
+    margin: 30px 0;
+}
